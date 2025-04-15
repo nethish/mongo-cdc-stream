@@ -47,3 +47,7 @@ db.users.insertOne({name: "nethi", age: 25})
 * `go mod tidy` for deps
 * `go run main.go`
 * Same as above
+
+## References
+Thanks to the [medium post](https://alek-cora-glez.medium.com/change-data-capture-service-for-mongodb-a87634d2b16b)
+
