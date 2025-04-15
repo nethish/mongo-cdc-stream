@@ -44,5 +44,6 @@ db.users.insertOne({name: "nethi", age: 25})
 * The change events should be reflected in the python output
 
 ## Go
+* `go mod tidy` for deps
 * `go run main.go`
 * Same as above
