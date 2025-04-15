@@ -7,6 +7,14 @@ from pymongo import MongoClient
 from pymongo.errors import PyMongoError
 
 
+# Optional Resume After
+# The resume after only works as long as the the operation is present in the oplog
+# The data is streamed from oplog, and oplog is a feature of a replica set. So you need to configure mongo in replica mode for it to work
+resume_after = {
+    "_data": "8267FEC222000000022B022C0100296E5A100483C25F90B0B94EDA808A86AD9B08FC7546645F6964006467FEC22279DA330F90A00AA90004"
+}
+
+
 def main():
     client = MongoClient(
         host="localhost",
@@ -20,6 +28,7 @@ def main():
         try:
             print("Connecting to MongoDB server and waiting for streams events...")
 
+            # You can replace resume after here to resume the data from last checkpoint
             with client.watch(pipeline=None, resume_after=None) as stream:
                 for event in stream:
                     print(
